@@ -19,13 +19,19 @@ def attr_writer_with_handler(*attr_symbols, &handler)
   end
 end
 
+# create handlers for an arbitrary list of symbols
+# accepts a block
+# block takes one argument (the new value of the attribute)
+# whatever the block returns will be set as the attribute value
+# the block is intended to throw errors if input is invalid
 def attr_accessor_with_handler(*attr_symbols, &handler)
   attr_writer_with_handler(*attr_symbols, &handler)
   attr_reader(*attr_symbols)
 end
 
-# special cases of attr_setter/accessor_with_handler
+#### special cases of attr_setter/accessor_with_handler
 
+# helper function
 def verify_class_or_subclass(expected_class, value)
   raise(ArgumentError, "#{value} is not a #{expected_class}.") unless value.class <= expected_class
 end
