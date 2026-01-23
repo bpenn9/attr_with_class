@@ -6,7 +6,7 @@ Ruby metafunctions that create type-safe attribute accessors.
 class SomeClass
   
   attr_accessor_with_class String :some_string :some_other_string
-  attr_
+  
 
 end
 ```

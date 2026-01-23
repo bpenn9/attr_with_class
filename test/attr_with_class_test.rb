@@ -3,9 +3,6 @@
 require_relative "./test_helper"
 
 require "test/unit"
-require "debug"
-# require_relative "../lib/attr_with_class"
-# require "minitest/autorun"
 
 class AttrHelperTest < Test::Unit::TestCase
   attr_setter_with_class Numeric, :must_be_numeric, :must_also_be_numeric
