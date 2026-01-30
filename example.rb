@@ -2,6 +2,7 @@ require "attr_with_class"
 
 class A 
   attr_accessor_with_class String, :must_be_a_string
+  attr_accessor_with_non_negative_integer :must_be_natural_number
 end
 
 #################
