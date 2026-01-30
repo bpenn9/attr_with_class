@@ -1,0 +1,28 @@
+PATH
+  remote: .
+  specs:
+    attr_with_class (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.18.1)
+    rake (13.0.6)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  attr_with_class!
+  bundler (~> 4.0.0)
+  minitest (~> 5.18.0)
+  rake (~> 13.0.0)
+
+CHECKSUMS
+  attr_with_class (0.1.0)
+  minitest (5.18.1) sha256=ab5ee381871aaddc3a6aa2a6abcab5c4590fec9affc20947d63f312a0fe4e9cd
+  rake (13.0.6) sha256=5ce4bf5037b4196c24ac62834d8db1ce175470391026bd9e557d669beeb19097
+
+BUNDLED WITH
+  4.0.3
