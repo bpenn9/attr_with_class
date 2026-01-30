@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-require_relative "./test_helper"
+# require_relative "./test_helper"
 
 require "test/unit"
-require "debug"
-# require_relative "../lib/attr_with_class"
-# require "minitest/autorun"
+
+require_relative "../lib/attr_with_class"
 
 class AttrHelperTest < Test::Unit::TestCase
-  attr_setter_with_class Numeric, :must_be_numeric, :must_also_be_numeric
+  attr_writer_with_class Numeric, :must_be_numeric, :must_also_be_numeric
   attr_writer_with_handler :must_be_number_one do |x|
     raise(ArgumentError, "#{x} must be the number one") unless x == 1
 
@@ -17,7 +16,7 @@ class AttrHelperTest < Test::Unit::TestCase
 
   attr_accessor_with_class String, :string_that_can_be_accessed
 
-  attr_accessor_with_positive_integer :positive_integer
+  attr_accessor_with_non_negative_integer :non_negative_integer
 
   def test_numeric_setter_1
     self.must_be_numeric = 5
@@ -50,14 +49,19 @@ class AttrHelperTest < Test::Unit::TestCase
     assert_equal("xyz", string_that_can_be_accessed)
   end
 
-  def test_positive_integer_accessor
-    self.positive_integer = 5
-    assert_equal(5, positive_integer)
+  def test_non_negative_integer_accessor
+    self.non_negative_integer = 5
+    assert_equal(5, non_negative_integer)
   end
 
-  def test_positive_integer_accessor_fails_for_negative_integer
+  def test_non_negative_integer_accessor_allows_zero
+    self.non_negative_integer = 0
+    assert_equal(0, non_negative_integer)
+  end
+
+  def test_non_negative_integer_accessor_fails_for_negative_integer
     assert_raise(ArgumentError) do
-      self.positive_integer = -5
+      self.non_negative_integer = -5
     end
   end
 end
