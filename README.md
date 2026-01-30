@@ -53,14 +53,17 @@ person.favourite_ice_cream = "pistachio" #raises ArgumentError: must be a valid 
 ### Available Methods
 
 `attr_writer / attr_accessor _with_handler(*attrs, &block)`
+
 writer or accessor with custom validation/transformation block
 
 
 `attr_writer / attr_accessor _with_class(klass, *attrs)`
+
 writer or accessor that enforces class (or subclass) 
 
 
 `attr_writer / attr_accessor _with_non_negative_integer(*attrs)`
+
 writer or accessor that enforces non-negative integers 
 
 ## Development
